@@ -31,8 +31,8 @@
     body {
         font-family: 'Tiro Devanagari Hindi', serif;
         background-color: var(--wedding-cream);
-        color: #333;
-        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        color: #222;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
     
     .header-font {
@@ -41,8 +41,9 @@
     
     .card {
         background-color: white;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
         border-radius: 8px;
+        padding: 2rem;
         overflow: hidden;
         position: relative;
     }
@@ -68,7 +69,7 @@
     }
     
     .event-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
         box-shadow: 0 15px 30px rgba(212, 175, 55, 0.2);
     }
     
@@ -123,12 +124,14 @@
         height: 300px;
     }
     
+    /* Enhanced Countdown Styles */
     .countdown-container {
         background: linear-gradient(135deg, var(--wedding-maroon), var(--wedding-red));
-        color: black;
+        color: white;
         border-radius: 8px;
         padding: 20px;
-        box-shadow: 0 5px 15px rgba(128, 0, 0, 0.3);
+        box-shadow: 0 8px 20px rgba(128, 0, 0, 0.4);
+        text-align: center;
     }
     
     .countdown-box {
@@ -136,11 +139,13 @@
         border-radius: 8px;
         padding: 10px;
         min-width: 80px;
+        animation: sparkle 2s ease-in-out infinite alternate;
     }
     
     .tab-active {
         background-color: var(--wedding-red);
-        color: black;
+        color: white;
+        font-weight: bold;
     }
     
     .tab {
@@ -223,7 +228,7 @@
     .heart-icon {
         position: relative;
         z-index: 1;
-        background-color: var(--wedding-cream);
+        background-color: white; /* Match card background */
         padding: 0 15px;
         color: var(--wedding-red);
     }
@@ -231,6 +236,14 @@
     @media (max-width: 768px) {
         .main-container {
             padding: 10px;
+        }
+        
+        .card {
+            padding: 1.5rem;
+        }
+        
+        .header h1 {
+            font-size: 3xl;
         }
         
         .mandala {
@@ -244,8 +257,8 @@
     </svg>
     
     <div class="max-w-5xl mx-auto relative z-10">
-        <!-- Header -->
-        <div class="card border-8 border-pattern p-1">
+       
+        <div class="card border-8 border-pattern p-1 animate-fade-in-up">
             <div class="bg-gradient-to-r from-red-800 via-red-600 to-red-800 text-center py-8 px-4 relative">
                 <!-- Diya decorations -->
                 <svg class="diya diya-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -274,7 +287,7 @@
         
         <!-- Countdown Timer -->
         <div class="mt-8 countdown-container">
-            <h3 class="text-xl text-center font-semibold mb-4">विवाह तक का समय</h3>
+            <h3 class="text-xl md:text-2xl text-yellow-200 text-center font-semibold mb-4 header-font">विवाह तक का समय</h3>
             <div class="flex justify-center space-x-4" id="countdown">
                 <div class="countdown-box text-center">
                     <div class="text-2xl font-bold" id="days">00</div>
@@ -296,7 +309,7 @@
         </div>
         
         <!-- Couple Names -->
-        <div class="mt-8 card p-6 text-center">
+        <div class="mt-8 card text-center animate-fade-in-up delay-100">
             <div class="heart-divider">
                 <span class="heart-icon text-2xl">❤️</span>
             </div>
@@ -319,12 +332,12 @@
         <!-- Tabs for different sections -->
         <div class="mt-8">
             <div class="flex flex-wrap border-b border-gray-300">
-                <button class="tab tab-active px-4 py-2 rounded-t-lg font-medium" onclick="openTab('events')">कार्यक्रम</button>
-                <button class="tab px-4 py-2 rounded-t-lg font-medium" onclick="openTab('family')">परिवार</button>
-                <button class="tab px-4 py-2 rounded-t-lg font-medium" onclick="openTab('venue')">स्थान</button>
-                <button class="tab px-4 py-2 rounded-t-lg font-medium" onclick="openTab('rsvp')">RSVP</button>
+                <button class="tab tab-active px-4 py-3 rounded-t-lg font-medium text-gray-700 hover:text-red-800 focus:outline-none" onclick="openTab('events')">कार्यक्रम</button>
+                <button class="tab px-4 py-3 rounded-t-lg font-medium text-gray-700 hover:text-red-800 focus:outline-none" onclick="openTab('family')">परिवार</button>
+                <button class="tab px-4 py-3 rounded-t-lg font-medium text-gray-700 hover:text-red-800 focus:outline-none" onclick="openTab('venue')">स्थान</button>
+                <button class="tab px-4 py-3 rounded-t-lg font-medium text-gray-700 hover:text-red-800 focus:outline-none" onclick="openTab('rsvp')">RSVP</button>
             </div>
-            
+        
             <!-- Events Tab -->
             <div id="events" class="tab-content">
                 <h3 class="text-2xl font-bold text-center my-6 text-red-800">मंगलमय क्षण</h3>
@@ -332,9 +345,9 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Event 1 -->
                     <div class="event-card card p-5 bg-gradient-to-br from-white to-yellow-50">
-                        <div class="flex items-center mb-3">
+                        <div class="flex items-start mb-3">
                             <svg class="w-10 h-10 text-red-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                             </svg>
                             <h4 class="text-xl font-bold ml-3 text-red-800">माता पूजन</h4>
                         </div>
@@ -346,9 +359,9 @@
                     
                     <!-- Event 2 -->
                     <div class="event-card card p-5 bg-gradient-to-br from-white to-yellow-50">
-                        <div class="flex items-center mb-3">
+                        <div class="flex items-start mb-3">
                             <svg class="w-10 h-10 text-red-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                             </svg>
                             <h4 class="text-xl font-bold ml-3 text-red-800">खनमिट्टी</h4>
                         </div>
@@ -360,9 +373,9 @@
                     
                     <!-- Event 3 -->
                     <div class="event-card card p-5 bg-gradient-to-br from-white to-yellow-50">
-                        <div class="flex items-center mb-3">
+                        <div class="flex items-start mb-3">
                             <svg class="w-10 h-10 text-red-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                             </svg>
                             <h4 class="text-xl font-bold ml-3 text-red-800">संगीत संध्या</h4>
                         </div>
@@ -374,9 +387,9 @@
                     
                     <!-- Event 4 -->
                     <div class="event-card card p-5 bg-gradient-to-br from-white to-yellow-50">
-                        <div class="flex items-center mb-3">
+                        <div class="flex items-start mb-3">
                             <svg class="w-10 h-10 text-red-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                             </svg>
                             <h4 class="text-xl font-bold ml-3 text-red-800">मंडप प्रवेश</h4>
                         </div>
@@ -388,9 +401,9 @@
                     
                     <!-- Event 5 -->
                     <div class="event-card card p-5 bg-gradient-to-br from-white to-yellow-50">
-                        <div class="flex items-center mb-3">
+                        <div class="flex items-start mb-3">
                             <svg class="w-10 h-10 text-red-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                             </svg>
                             <h4 class="text-xl font-bold ml-3 text-red-800">देवी पूजन एवं वर पूजन स्वागत समारोह</h4>
                         </div>
@@ -402,9 +415,9 @@
                     
                     <!-- Event 6 -->
                     <div class="event-card card p-5 bg-gradient-to-br from-white to-red-50">
-                        <div class="flex items-center mb-3">
+                        <div class="flex items-start mb-3">
                             <svg class="w-10 h-10 text-red-700" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
                             </svg>
                             <h4 class="text-xl font-bold ml-3 text-red-800">पाणिग्रहण संस्कार एवं स्वस्तिवाचन</h4>
                         </div>
@@ -420,7 +433,7 @@
             <div id="family" class="tab-content hidden">
                 <h3 class="text-2xl font-bold text-center my-6 text-red-800">स्वागतोल्लास</h3>
                 
-                <div class="card p-6">
+                <div class="card">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <h4 class="text-xl font-semibold text-red-700 mb-3">परिवार</h4>
@@ -477,7 +490,7 @@
             <div id="venue" class="tab-content hidden">
                 <h3 class="text-2xl font-bold text-center my-6 text-red-800">विवाह स्थल</h3>
                 
-                <div class="card p-6">
+                <div class="card">
                     <div class="flex flex-col md:flex-row items-center">
                         <div class="w-full md:w-1/2 p-4">
                             <svg class="w-full h-64" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -515,7 +528,7 @@
             <div id="rsvp" class="tab-content hidden">
                 <h3 class="text-2xl font-bold text-center my-6 text-red-800">कृपया अपनी उपस्थिति की पुष्टि करें</h3>
                 
-                <div class="card p-6">
+                <div class="card">
                     <form id="rsvpForm" class="space-y-4">
                         <div>
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="name">नाम</label>
@@ -575,7 +588,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center">
-                            <button class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" type="button" onclick="submitRSVP()">
+                            <button class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline transition duration-300 ease-in-out" type="button" onclick="submitRSVP()">
                                 पुष्टि करें
                             </button>
                         </div>
@@ -586,7 +599,7 @@
         
         <!-- Contact Information -->
         <div class="mt-8 card p-6">
-            <h3 class="text-xl font-bold text-center text-red-800 mb-4">संपर्क करें</h3>
+            <h3 class="text-2xl font-bold text-center text-red-800 mb-4">संपर्क करें</h3>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="text-center">
